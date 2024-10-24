@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "filtros"
+    "productos"
+    "paginacion"
+    "footer";
+  grid-template-columns: 1fr;
+  background-color: rgb(240, 240, 240);
+  min-height: 100vh;
+}
+
+.header {
+  grid-area: header;
+  background-color: rgb(27, 55, 116);
+  color: rgb(255, 255, 255);
+  display: flex;
+  height: 100%;
+  font-size: large;
+  font-weight: 600;
+  padding: 15px;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  padding-left: 20px;
+}
+
+.menu {
+  display: none;
+  font-size: xx-small;
+}
+
+.header > p {
+  min-width: 10rem;
+}
+
+.bar-icon {
+  display: flex;
+  justify-content: end;
+  width: 10rem;
+}
+
+.filtros {
+  grid-area: filtros;
+  background-color: rgb(212, 212, 212);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+  font-size: medium;
+  font-weight: 500;
+}
+
+.filtro {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  margin: 10px;
+  width: 80%;
+  justify-content: space-between;
+  padding: 5px;
+  padding-inline: 15px;
+  border-radius: 10px;
+  align-items: center;
+  font-weight: 400;
+}
+
+.productos {
+  grid-area: productos;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+  overflow-y: auto;
+  flex: 1;
+  align-items: center;
+}
+
+.product-card {
+  border: 1px solid rgb(160, 160, 160);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+  align-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+  width: 80%;
+}
+
+button {
+  background-color: rgb(27, 55, 116);
+  color: rgb(255, 255, 255);
+  width: 70px;
+  border-radius: 10px;
+}
+
+img {
+  width: 200px;
+}
+
+.paginacion {
+  grid-area: paginacion;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-size: small;
+  font-weight: 400;
+  margin-bottom: 5px;
+  color: rgb(56, 56, 172);
+}
+
+.paginacion > p {
+  border: 1px solid rgb(208, 208, 208);
+  padding: 5px;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: rgb(27, 55, 116);
+  color: rgb(253, 253, 253);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+  position: sticky;
+  bottom: 0;
+}
+
+.hide {
+  display: none;
+}
+
+@media (width >= 576px) {
+  body {
+    grid-template-areas:
+      "header filtros"
+      "header productos"
+      "footer productos";
+    grid-template-columns: 250px auto;
+  }
+
+  .header {
+    grid-area: header;
+    background-color: rgb(27, 55, 116);
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 80px);
+    font-size: x-large;
+    font-weight: 600;
+    padding-top: 50px;
+    align-items: center;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .bar-icon {
+    display: none;
+    justify-content: end;
+    width: 0rem;
+  }
+
+  .paginacion {
+    display: none;
+  }
+
+  .footer {
+    height: 80px;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    gap: 15px;
+    align-items: center;
+    font-size: large;
+    font-weight: 400;
+  }
+
+  .menu > p:hover {
+    cursor: pointer;
+  }
+
+  .filtro {
+    width: 80%;
+  }
+
+  .filtro > i:hover {
+    cursor: pointer;
+  }
+
+  .filtros {
+    position: sticky;
+    top: 0;
+  }
+
+  header > p {
+    padding: 0;
+    min-width: none;
+    text-align: center;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  .productos {
+    grid-area: productos;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: 15px;
+    height: 100%;
+  }
+
+  .product-card {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    width: 300px;
+  }
+}
